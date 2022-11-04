@@ -1,0 +1,44 @@
+CREATE DATABASE pilares;
+USE pilares;
+CREATE TABLE profesor(
+  idProf INT PRIMARY KEY,
+  nombre VARCHAR(25),
+  carrera VARCHAR(25)
+  );
+ CREATE TABLE taller(
+   idTaller INT PRIMARY KEY,
+   nombre VARCHAR(25),
+   cupo INT,
+   área VARCHAR(25),
+   idProf INT,
+   FOREIGN KEY (idProf) REFERENCES
+   profesor (idProf)
+   );
+CREATE TABLE usuario(
+idUsuario INT PRIMARY KEY,
+nombre VARCHAR(25),
+fecha_nac VARCHAR(25)
+);
+CREATE TABLE asistir(
+  idAsistencia INT PRIMARY KEY,
+  idTaller INT,
+  idUsuario INT,
+  fecha DATETIME,
+  FOREIGN KEY (idTaller) REFERENCES
+  usuario (idUsuario)
+  );
+
+  Query SQL
+io;
+1
+​
+2
+USE pilares;
+3
+SHOW TABLES;
+4
+DESCRIBE profesor;
+5
+DESCRIBE taller;
+6
+DESCRIBE usuario;
