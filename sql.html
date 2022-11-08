@@ -1,44 +1,57 @@
 CREATE DATABASE pilares;
 USE pilares;
 CREATE TABLE profesor(
-  idProf INT PRIMARY KEY,
-  nombre VARCHAR(25),
-  carrera VARCHAR(25)
-  );
- CREATE TABLE taller(
-   idTaller INT PRIMARY KEY,
+  idProf INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(25) NOT NULL,
+  carrera VARCHAR(25) NOT NULL,
+  fecha_nac DATE NOT NULL
+);
+
+  CREATE TABLE taller(
+   idTaller INT UNSIGNED PRIMARY KEY,
    nombre VARCHAR(25),
    cupo INT,
    área VARCHAR(25),
-   idProf INT,
+   idProf INT UNSIGNED,
    FOREIGN KEY (idProf) REFERENCES
    profesor (idProf)
    );
 CREATE TABLE usuario(
-idUsuario INT PRIMARY KEY,
+idUsuario INT UNSIGNED PRIMARY KEY,
 nombre VARCHAR(25),
 fecha_nac VARCHAR(25)
 );
 CREATE TABLE asistir(
-  idAsistencia INT PRIMARY KEY,
-  idTaller INT,
-  idUsuario INT,
+  idAsistencia INT UNSIGNED PRIMARY KEY,
+  idTaller INT UNSIGNED,
+  idUsuario INT UNSIGNED,
   fecha DATETIME,
   FOREIGN KEY (idTaller) REFERENCES
   usuario (idUsuario)
   );
+  
+  INSERT INTO profesor(idProf, nombre, carrera, fecha_nac)
+  VALUES (1, "Laura", "Economía", "1990-10-08"),
+  (2, "Mario", "Matemáticas", "1980-02-03"),
+  (3, "Patricio", "Español", "1989-01-24"),
+  (4, "Bob", "Inglés", "1959-11-19");
+  
+  INSERT INTO usuario(idUsuario, nombre, fecha_nac)
+  VALUES (1, "Marina","1993-10-26"),
+  (2, "Carmen","1994-05-12"),
+  (3, "Sofia","1994-02-14"),
+  (4, "Mayra", "1994-07-19"),
+  (5, "Nahui", "1994-22-02");
+
 
   Query SQL
-io;
 1
-​
-2
 USE pilares;
-3
+2
 SHOW TABLES;
-4
+3
 DESCRIBE profesor;
-5
+4
 DESCRIBE taller;
-6
+5
 DESCRIBE usuario;
