@@ -1,0 +1,86 @@
+Schema SQL
+1
+CREATE DATABASE ejercicio6;
+2
+USE ejercicio6;
+3
+CREATE TABLE fabricante(
+4
+   codigo INT(10) PRIMARY KEY,
+5
+ nombre VARCHAR(100)
+6
+  );
+7
+  CREATE TABLE producto(
+8
+   codigo INT(10) PRIMARY KEY,
+9
+   nombre VARCHAR(100),
+10
+   precio DOUBLE,
+11
+    codigo_fabricante INT(10),
+12
+   FOREIGN KEY (codigo_fabricante) REFERENCES fabricante(codigo)
+13
+   );
+14
+   
+15
+   INSERT INTO fabricante(codigo, nombre)
+16
+   VALUES (1, "Asus"),
+17
+   (2, "Lenovo"),
+18
+    (3, "Hewlett-packard"),
+19
+    (4, "Samsung"),
+20
+    (5, "Seagate"),
+21
+    (6, "Crucial"),
+22
+    (7, "Gigabyte"),
+23
+    (8, "Huawei"),
+24
+    (9, "Xiaomi");
+25
+    
+26
+   INSERT INTO producto(codigo, nombre, precio, codigo_fabricante)
+27
+   VALUES (1, "Disco Duro SATA3 1TB","86.99","5"),
+28
+   (2,"Memoria RAM DDR4 8GB", "120", "6"),
+29
+   (3, "Disco SSD 1TB","150.99","4"),
+30
+   (4, "GeForce GTX 1050 Ti", "185","7"),
+31
+   (5, "GeForce GTX 1080 Xtreme","755","6"),
+32
+   (6, "Monitor 24 LED Full HD", "202", "1"),
+33
+   (7, "Monitor 27 LED Full HD", "245.99", "1"),
+34
+   (8, "Portátil Yoga 520", "559", "2"),
+35
+   (9, "Portatil Ideapad 320", "444", "2"),
+36
+   (10, "Impresora HP Deskjet 3720","59.99", "3"),
+37
+   (11, "Impresora HP Laserjet Pro M26nw", "180", "3");
+
+
+Query SQL
+1
+USE ejercicio6;
+2
+SHOW TABLES;
+3
+SELECT * FROM fabricante;
+4
+SELECT * FROM producto;
