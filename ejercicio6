@@ -84,3 +84,22 @@ SHOW TABLES;
 SELECT * FROM fabricante;
 4
 SELECT * FROM producto;
+
+
+USE ejercicio6;
+SHOW TABLES;
+SELECT nombre precio
+FROM producto
+WHERE precio >100;
+SELECT producto.nombre, producto.precio
+FROM producto
+WHERE producto.precio>100;
+SELECT P.nombre, P.precio
+FROM producto AS P
+WHERE  P.precio>500 AND P.codigo_fabricante IN (1,2,3,4,5);
+SELECT F.codigo
+FROM fabricante AS F
+WHERE F.nombre="Lenovo";
+SELECT P.nombre, P.precio
+FROM producto AS P
+WHERE P.nombre LIKE "I%";
